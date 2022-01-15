@@ -37,7 +37,7 @@ export class FlowsService {
   }
 
   public getFlows(getFlowsArgs: GetFlowsArgs): Flow[] {
-    return getFlowsArgs.flowIds.map((flowId) => this.getFlow({ flowId }));
+    return this.flows.filter(item => item.userId === getFlowsArgs.userId);
   }
 
   public deleteFlow(deleteFlowsArgs: DeleteFlowInput): Flow {
